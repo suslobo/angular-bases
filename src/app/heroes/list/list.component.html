@@ -1,0 +1,33 @@
+
+<h3>Listado de Héroes</h3>
+
+<div *ngIf="deletedHero; else nothingWasDeleted"> <!--si heroe borrado no se cumple muestra No ha borrado nada-->
+  <h3>Héroe borrado <small class="text-danger">{{deletedHero}}</small></h3>
+</div>
+
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+<!-- queremos borrar el útlimo héroe
+vamos al list.component.ts y creamos un método
+nuevo método removeLastHero-->
+<!-- si ya ha borrado todo no tiene sentido que aparezca,
+ ponemos *ngIf="heroNames.length > 0"-->
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()" class="btn btn-outline-danger">
+  Borrar último héroe
+</button>
+
+
+
+
+
+<!-- para que nos haga esto utilizamos ngFor, creamos en el ts. las propiedades, metodos-->
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames"
+    class="list-group-item">
+    {{name}}
+  </li>
+</ul>

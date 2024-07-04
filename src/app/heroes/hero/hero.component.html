@@ -1,0 +1,37 @@
+
+<h1>{{name}}</h1>
+
+<dl>
+  <td>Nombre:</td>
+  <dd> {{name}}</dd>
+
+  <td>Edad:</td>
+  <dd> {{age}}</dd>
+
+  <td>Método:</td>
+  <dd> {{getHeroDescription()}}</dd>
+
+  <td>Capitalizado:</td>
+  <dd> {{capitalizedName}}</dd>
+
+</dl>
+<!-- para cambiar el nombre del héroe llamamos al método (click)="changeHero()"-->
+<!-- si quiero que el botón desaparezca cuando el nombre es distinto de spiderman -->
+<!-- directivas *ngIf="expression" -->
+<button
+  *ngIf="name !== 'Spiderman'"
+  (click)="changeHero()" class="btn btn-primary mx-2">
+  Cambiar nombre
+</button>
+
+<button
+  *ngIf="age !== 25"
+  (click)="changeAge()" class="btn btn-primary">
+  Cambiar edad
+</button>
+
+<button
+  (click)="resetForm()" class="btn btn-primary mx-2">
+  Reset
+</button>
+
